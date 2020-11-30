@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+<% include('layout/cabecalho'); %>
+<section class="hero is-info is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title"><%= cabecalho %></h1>
+      <h2 class="subtitle">Lista de contatos e ações</h2>
+      <a class="button is-rounded is-primary mb-4" href="/contatos/novo">Novo contato</a>
+    </div>
+  </div>
+</section>
+
+<section class="section is-fullheight has-text-centered">
+  <div class="container">
+    <table class="table is-bordered is-striped table is-hoverable">
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Telefone</th>
+        <th>Ações</th>
+      </tr>
+      <% for (var i=0; i < contacts.length; i++) { %>
+      <tr>
+        <td><%= contacts[i].nome %></td>
+        <td><%= contacts[i].email %></td>
+        <td><%= contacts[i].telefone %></td>
+        <td>
+          <a class="button is-link" href="/contatos/atualiza/<%= i %>">
+            Atualizar </a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <a class="button is-danger" href="/contatos/deleta/<%= i %>">
+            Remover
+          </a>
+        </td>
+      </tr>
+      <% }; %>
+    </table>
+  </div>
+</section>
+<%- include('layout/rodape') %>

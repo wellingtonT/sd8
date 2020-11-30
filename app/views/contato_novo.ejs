@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+<% include('layout/cabecalho'); %>
+<section class="hero is-info is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        Novo Contato
+      </h1>
+      <h2 class="subtitle">
+        preencha o formulario para cadastrar novos contatos no sistema
+      </h2>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <form action="/contatos/novo" method="POST">
+      <% include('layout/contato_form'); %> <input type="hidden" name="id" value="<%= contacts == null ? "" : id %>">
+
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label"> Nome Completo: </label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <input class="input" required type="text" name="nome" value="<%= contacts ==
+          null ? "" : contacts[id].nome %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label"> Email: </label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <input class="input" required type="email" name="email" value="<%= contacts ==
+            null ? "" : contacts[id].email %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label"> Cidade: </label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <input class="input" required type="text" name="cidade" value="<%= contacts ==
+            null ? "" : contacts[id].cidade %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label"> Estado: </label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <input class="input" required type="text" name="estado" value="<%= contacts ==
+            null ? "" : contacts[id].estado %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label"> Telefone: </label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <input class="input" required type="text" name="telefone" value="<%= contacts ==
+            null ? "" : contacts[id].telefone %>">
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-grouped is-grouped-right">
+        <div class="control">
+          <input class="button is-link" type="submit" value="OK" />
+        </div>
+        <div class="control">
+          <a href="/agenda" class="button is-link is-light">Cancel</a>
+        </div>
+    </form>
+  </div>
+</section>
+
+<%- include('layout/rodape'); %>

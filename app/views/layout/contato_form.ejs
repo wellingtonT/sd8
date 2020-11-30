@@ -1,0 +1,7 @@
+<input type="hidden" name="id" value="<%= contacts == null ? "" : id %>">
+<p>Nome Completo: <input type="text" name="nome" value="<%= contacts == null ? "" : contacts[id].nome %>" ></p>
+<p>Email: <input type="text" name="email" value="<%= contacts == null ? "" : contacts[id].email %>"></p>
+<p>Cidade: <input type="text" name="cidade" value="<%= contacts == null ? "" : contacts[id].cidade %>" ></p>
+<p>Estado: <input type="text" name="estado" value="<%= contacts == null ? "" : contacts[id].estado %>"></p>
+<p>Telefone: <input type="text" name="telefone" value="<%= contacts == null ? "" : contacts[id].telefone %>" ></p>
+<input type="submit" value="OK">
